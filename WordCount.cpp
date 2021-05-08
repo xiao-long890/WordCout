@@ -1,6 +1,27 @@
 #include <stdio.h>
 #include <string.h>
+
 //统计字符数
+void CharCount();
+//统计单词数
+void WordCount();
+
+int main(int argc,char *argv[])
+{
+	//统计字符数
+    if ((strcmp(argv[1], "-c") == 0) && (strcmp(argv[2], "test.txt") == 0))
+    {
+        CharCount();
+    }
+    //统计单词数
+    if ((strcmp(argv[1], "-w") == 0) && (strcmp(argv[2], "test.txt") == 0))
+    {
+        WordCount();
+    }
+    
+    return 0;
+}
+
 void CharCount()
 {
     FILE *fp;
@@ -20,8 +41,6 @@ void CharCount()
     fclose(fp);
 }
 
-
-//统计单词数
 void WordCount() 
 {
     FILE *fp;
@@ -46,20 +65,4 @@ void WordCount()
     }
     printf("单词数为：%d个.\n",wordCount);
     fclose(fp);
-}
-
-int main(int argc,char *argv[])
-{
-	//统计字符数
-    if ((strcmp(argv[1], "-c") == 0) && (strcmp(argv[2], "test.txt") == 0))
-    {
-        CharCount();
-    }
-    //统计单词数
-    if ((strcmp(argv[1], "-w") == 0) && (strcmp(argv[2], "test.txt") == 0))
-    {
-        WordCount();
-    }
-    
-    return 0;
 }
